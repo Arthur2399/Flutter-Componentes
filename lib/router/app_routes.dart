@@ -33,6 +33,11 @@ class AppRoutes {
         name: 'Alert',
         screen: const AlertScreen(),
         icon: Icons.airplay),
+    MenuOption(
+        route: 'avatar',
+        name: 'Avatar',
+        screen: const AvatarScreen(),
+        icon: Icons.supervised_user_circle_rounded),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {

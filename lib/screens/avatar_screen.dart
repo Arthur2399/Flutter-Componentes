@@ -5,10 +5,26 @@ class AvatarScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('AvatarScreen'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Avatar'),
+        actions: [
+          Container(
+            margin: const EdgeInsets.only(right: 5),
+            child: CircleAvatar(
+              child: const Text("SL"),
+              backgroundColor: Colors.indigo[900],
+            ),
+          )
+        ],
       ),
+      body: const Center(
+          child: CircleAvatar(
+        maxRadius: 110,
+        backgroundImage: NetworkImage(
+          'https://i0.wp.com/hipertextual.com/wp-content/uploads/2021/01/the-office.jpg?fit=2000%2C1333&ssl=1',
+        ),
+      )),
     );
   }
 }
