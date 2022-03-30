@@ -1,4 +1,3 @@
-import 'package:componentes/screens/inputs_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:componentes/models/models.dart';
 import '../models/models.dart';
@@ -43,6 +42,11 @@ class AppRoutes {
         name: 'Text Inputs',
         screen: const InputsScreen(),
         icon: Icons.text_fields_sharp),
+    MenuOption(
+        route: 'slider',
+        name: 'Sliders && Checks',
+        screen: const SliderScreen(),
+        icon: Icons.sledding),
   ];
 
   static Map<String, Widget Function(BuildContext)> getAppRoutes() {

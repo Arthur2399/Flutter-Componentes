@@ -29,26 +29,59 @@ class InputsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   const SizedBox(height: 10),
-                  const CustomInputField(
+                  CustomInputField(
                     labelText: 'Nombre',
                     hintText: 'Nombre del Usuario',
+                    formProperty: 'first-name',
+                    formValues: formValues,
                   ),
                   const SizedBox(height: 30),
-                  const CustomInputField(
+                  CustomInputField(
                     labelText: 'Apellido',
                     hintText: 'Apellido del Usuario',
+                    formProperty: 'last-name',
+                    formValues: formValues,
                   ),
                   const SizedBox(height: 30),
-                  const CustomInputField(
+                  CustomInputField(
                     labelText: 'Correo',
                     hintText: 'Correo del Usuario',
                     inputType: TextInputType.emailAddress,
+                    formProperty: 'email',
+                    formValues: formValues,
                   ),
                   const SizedBox(height: 30),
-                  const CustomInputField(
+                  CustomInputField(
                     labelText: 'Contraseña',
                     hintText: 'Contraseña del Usuario',
                     obscureText: true,
+                    formProperty: 'password',
+                    formValues: formValues,
+                  ),
+                  const SizedBox(height: 30),
+                  DropdownButtonFormField<String>(
+                    items: const [
+                      DropdownMenuItem(
+                        value: 'Admin',
+                        child: Text('Admin'),
+                      ),
+                      DropdownMenuItem(
+                        value: 'SuperUser',
+                        child: Text('SuperUser'),
+                      ),
+                      DropdownMenuItem(
+                        value: 'Developer',
+                        child: Text('Developer'),
+                      ),
+                      DropdownMenuItem(
+                        value: 'Developer Jr',
+                        child: Text('Developer Jr'),
+                      )
+                    ],
+                    onChanged: (value) {
+                      print(value);
+                      formValues['role'] = value ?? 'Admin';
+                    },
                   ),
                   const SizedBox(height: 30),
                   ElevatedButton(
@@ -65,6 +98,7 @@ class InputsScreen extends StatelessWidget {
                         print('Formulario no valido');
                         return;
                       }
+                      print(formValues);
                     },
                   )
                 ],
